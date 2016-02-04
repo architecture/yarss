@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="http://foo.bar" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Ma Feed</title>
+    <link>http://foo.bar/</link>
+    <description>Best Eva!</description>
+    <language>en</language>
+    <item>
+      <title>Yo Mama</title>
+      <link>http://foo.bar/1</link>
+      <description>Whee</description>
+      <comments>http://foo.bar/1#comment</comments>
+      <pubDate>Wed, 3 Feb 2016 12:28:11 +0100</pubDate>
+      <dc:creator>Joe</dc:creator>
+      <guid isPermaLink="false">1</guid>
+    </item>
+    <item>
+      <title>Yo Papa</title>
+      <link>http://foo.bar/2</link>
+      <description>Hooo</description>
+      <comments>http://foo.bar/2#comment</comments>
+      <pubDate>Wed, 3 Feb 2016 12:29:57 +0100</pubDate>
+      <dc:creator>Doe</dc:creator>
+      <guid isPermaLink="false">2</guid>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://foo.bar/</id>
+  <title>Ma Feed</title>
+  <updated>2016-02-03T12:41:43+01:00</updated>
+  <link rel="alternate" href="http://foo.bar/"/>
+  <link rel="self" href="http://foo.bar/atom.xml"/>
+  <author>
+    <name>Joe</name>
+    <uri>http://foo.bar/</uri>
+  </author>
+  <entry>
+    <id>1</id>
+    <title type="html">Yo Mama</title>
+    <published>2016-02-03T12:43:10+01:00</published>
+    <updated>2016-02-03T12:43:10+01:00</updated>
+    <link rel="alternate" href="http://foo.bar/1"/>
+    <content type="html">Whee</content>
+  </entry>
+  <entry>
+    <id>2</id>
+    <title type="html">Yo Papa</title>
+    <published>2016-02-03T12:58:35+01:00</published>
+    <updated>2016-02-03T12:58:35+01:00</updated>
+    <link rel="alternate" href="http://foo.bar/2"/>
+    <content type="html">Hooo</content>
+  </entry>
+</feed>
+

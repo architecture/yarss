@@ -1,0 +1,8 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'bin/console'
+    - 'examples/rss.rb'
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
