@@ -1,4 +1,4 @@
-# Yarss – Yet Another RSS Feed Normalizer.
+# Yarss – Yet Another RSS Feed Normalizer. [![Build Status](https://travis-ci.org/ollie/yarss.svg?branch=master)](https://travis-ci.org/ollie/yarss) [![Gem Version](https://img.shields.io/gem/v/yarss.svg)](https://rubygems.org/gems/yarss)
 
 Parse and access RSS/RDF/Atom feeds with a uniform interface. Yarss uses
 [MutliXml](https://rubygems.org/gems/multi_xml) behind the scenes so you may
