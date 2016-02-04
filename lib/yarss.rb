@@ -113,14 +113,15 @@ module Yarss
   #   end
   #
   # @return [Feed]
-  def self.from_string(data, path_or_io)
+  def self.from_string(data, path_or_io = nil)
     data = MultiXml.parse(data)
 
     return Rss::FeedParser.new(data).parse  if data['rss']
     return Atom::FeedParser.new(data).parse if data['feed']
     return Rdf::FeedParser.new(data).parse  if data['rdf:RDF'] || data['RDF']
 
-    raise UnknownParserError, "Cannot find parser for #{path_or_io}"
+    msg = "Cannot find parser for #{path_or_io}" if path_or_io
+    raise UnknownParserError, msg
   rescue MultiXml::ParseError => e
     raise ParseError, e
   end

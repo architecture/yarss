@@ -29,6 +29,12 @@ describe Yarss do
   context 'from_string' do
     it 'rss' do
       data = File.read('spec/data/feed.rss')
+      feed = described_class.from_string(data)
+      expect(feed.title).to eq('Ma Feed')
+    end
+
+    it 'rss' do
+      data = File.read('spec/data/feed.rss')
       feed = described_class.from_string(data, nil)
       expect(feed.title).to eq('Ma Feed')
     end
