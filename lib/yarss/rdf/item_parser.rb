@@ -26,6 +26,7 @@ module Yarss
           title:      title,
           updated_at: updated,
           link:       link,
+          author:     author,
           content:    description
         )
       end
@@ -79,6 +80,23 @@ module Yarss
       # @return [String]
       def link
         Attribute.link_value(data.fetch('link'))
+      rescue KeyError => e
+        raise ParseError, e
+      end
+
+      # Extract the author.
+      #
+      # @raise [ParseError] If not found.
+      #
+      # @return [String]
+      def author
+        author = if data['dc:creator']
+                   data['dc:creator']
+                 else
+                   data.fetch('creator')
+                 end
+
+        Attribute.value(author)
       rescue KeyError => e
         raise ParseError, e
       end

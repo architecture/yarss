@@ -22,6 +22,7 @@ describe Yarss::Rss::FeedParser do
                 'title'       => ' Foo ',
                 'pubDate'     => 'Tue, 2 Feb 2016 15:27:00 +0100',
                 'link'        => 'http://foo.bar/',
+                'author'      => 'Foo',
                 'description' => 'Foo, Bar!'
               }
             ]
@@ -42,6 +43,7 @@ describe Yarss::Rss::FeedParser do
               title:      'Foo',
               updated_at: DateTime.parse('2016-02-02T15:27:00+01:00'),
               link:       'http://foo.bar/',
+              author:     'Foo',
               content:    'Foo, Bar!'
             )
           ]
@@ -110,6 +112,7 @@ describe Yarss::Rss::FeedParser do
                 'title'       => ' Foo ',
                 'pubDate'     => 'Tue, 2 Feb 2016 15:27:00 +0100',
                 'link'        => 'http://foo.bar/',
+                'author'      => 'Foo',
                 'description' => 'Foo, Bar!'
               }
             ]
@@ -131,6 +134,7 @@ describe Yarss::Rss::FeedParser do
               'title'       => ' Foo ',
               'pubDate'     => 'Tue, 2 Feb 2016 15:27:00 +0100',
               'link'        => 'http://foo.bar/',
+              'author'      => 'Foo',
               'description' => 'Foo, Bar!'
             }
           }

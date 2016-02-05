@@ -23,6 +23,7 @@ describe Yarss::Rdf::FeedParser do
               'title'       => 'Foo',
               'dc:date'     => '2016-02-02T15:27:00+01:00',
               'link'        => 'http://foo.bar/',
+              'dc:creator'  => 'Foo',
               'description' => 'Foo, Bar!'
             }
           ]
@@ -42,6 +43,7 @@ describe Yarss::Rdf::FeedParser do
               title:      'Foo',
               updated_at: DateTime.parse('2016-02-02T15:27:00+01:00'),
               link:       'http://foo.bar/',
+              author:     'Foo',
               content:    'Foo, Bar!'
             )
           ]
@@ -114,6 +116,7 @@ describe Yarss::Rdf::FeedParser do
               'title'       => 'Foo',
               'dc:date'     => '2016-02-02T15:27:00+01:00',
               'link'        => 'http://foo.bar/',
+              'dc:creator'  => 'Foo',
               'description' => 'Foo, Bar!'
             }
           ]
@@ -133,6 +136,7 @@ describe Yarss::Rdf::FeedParser do
             'title'       => 'Foo',
             'dc:date'     => '2016-02-02T15:27:00+01:00',
             'link'        => 'http://foo.bar/',
+            'dc:creator'  => 'Foo',
             'description' => 'Foo, Bar!'
           }
         }

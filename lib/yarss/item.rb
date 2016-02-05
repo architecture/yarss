@@ -23,6 +23,11 @@ module Yarss
     # @return [String]
     attr_accessor :link
 
+    # Author.
+    #
+    # @return [String]
+    attr_accessor :author
+
     # Content.
     #
     # @return [String]
@@ -41,13 +46,14 @@ module Yarss
     # @param other [Item]
     #
     # @return [Bool]
-    def ==(other) # rubocop:disable Metrics/AbcSize
+    def ==(other)
       return false unless other.is_a?(self.class)
 
       id           == other.id         &&
         title      == other.title      &&
         updated_at == other.updated_at &&
         link       == other.link       &&
+        author     == other.author     &&
         content    == other.content
     end
   end

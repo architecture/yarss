@@ -21,6 +21,7 @@ describe Yarss::Atom::FeedParser do
               'title'   => 'Foo',
               'updated' => '2016-02-02T15:27:00+01:00',
               'link'    => 'http://foo.bar/',
+              'author'  => 'Foo',
               'content' => 'Foo, Bar!'
             }
           ]
@@ -40,6 +41,7 @@ describe Yarss::Atom::FeedParser do
               title:      'Foo',
               updated_at: DateTime.parse('2016-02-02T15:27:00+01:00'),
               link:       'http://foo.bar/',
+              author:     'Foo',
               content:    'Foo, Bar!'
             )
           ]
@@ -102,6 +104,7 @@ describe Yarss::Atom::FeedParser do
               'title'   => 'Foo',
               'updated' => '2016-02-02T15:27:00+01:00',
               'link'    => 'http://foo.bar/',
+              'author'  => 'Foo',
               'content' => 'Foo, Bar!'
             }
           ]
@@ -121,6 +124,7 @@ describe Yarss::Atom::FeedParser do
             'title'   => 'Foo',
             'updated' => '2016-02-02T15:27:00+01:00',
             'link'    => 'http://foo.bar/',
+            'author'  => 'Foo',
             'content' => 'Foo, Bar!'
           }
         }

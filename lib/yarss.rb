@@ -31,11 +31,17 @@ module Yarss
   # @example
   #   feed = Yarss.new('path/to/feed.rss')
   #
-  #   puts "#{feed.title}, #{feed.link}, #{feed.description}"
+  #   feed.title       # => "Foo's bars"
+  #   feed.link        # => 'http://foo.bar/'
+  #   feed.description # => 'Bars everywhere!'
   #
   #   feed.items.each do |item|
-  #     puts "#{item.id}, #{item.title}, #{item.updated_at}, #{item.link}"
-  #     puts item.content
+  #     item.id         # => 'id'
+  #     item.title      # => 'Hello!'
+  #     item.updated_at # => #<DateTIme ...>
+  #     item.link       # => 'http://foo.bar/1'
+  #     item.author     # => 'Joe'
+  #     item.content    # => '<p>Hi!</p>'
   #   end
   #
   # @return [Feed]
@@ -58,11 +64,17 @@ module Yarss
   #   feed = Yarss.from_io(Pathname.new('path/to/feed.rss'))
   #   feed = Yarss.from_io(File.open('path/to/feed.rss', 'rb'))
   #
-  #   puts "#{feed.title}, #{feed.link}, #{feed.description}"
+  #   feed.title       # => "Foo's bars"
+  #   feed.link        # => 'http://foo.bar/'
+  #   feed.description # => 'Bars everywhere!'
   #
   #   feed.items.each do |item|
-  #     puts "#{item.id}, #{item.title}, #{item.updated_at}, #{item.link}"
-  #     puts item.content
+  #     item.id         # => 'id'
+  #     item.title      # => 'Hello!'
+  #     item.updated_at # => #<DateTIme ...>
+  #     item.link       # => 'http://foo.bar/1'
+  #     item.author     # => 'Joe'
+  #     item.content    # => '<p>Hi!</p>'
   #   end
   #
   # @return [Feed]
@@ -81,11 +93,17 @@ module Yarss
   # @example
   #   feed = Yarss.from_file('path/to/feed.rss')
   #
-  #   puts "#{feed.title}, #{feed.link}, #{feed.description}"
+  #   feed.title       # => "Foo's bars"
+  #   feed.link        # => 'http://foo.bar/'
+  #   feed.description # => 'Bars everywhere!'
   #
   #   feed.items.each do |item|
-  #     puts "#{item.id}, #{item.title}, #{item.updated_at}, #{item.link}"
-  #     puts item.content
+  #     item.id         # => 'id'
+  #     item.title      # => 'Hello!'
+  #     item.updated_at # => #<DateTIme ...>
+  #     item.link       # => 'http://foo.bar/1'
+  #     item.author     # => 'Joe'
+  #     item.content    # => '<p>Hi!</p>'
   #   end
   #
   # @return [Feed]
@@ -105,11 +123,17 @@ module Yarss
   # @example
   #   feed = Yarss.from_string('...)
   #
-  #   puts "#{feed.title}, #{feed.link}, #{feed.description}"
+  #   feed.title       # => "Foo's bars"
+  #   feed.link        # => 'http://foo.bar/'
+  #   feed.description # => 'Bars everywhere!'
   #
   #   feed.items.each do |item|
-  #     puts "#{item.id}, #{item.title}, #{item.updated_at}, #{item.link}"
-  #     puts item.content
+  #     item.id         # => 'id'
+  #     item.title      # => 'Hello!'
+  #     item.updated_at # => #<DateTIme ...>
+  #     item.link       # => 'http://foo.bar/1'
+  #     item.author     # => 'Joe'
+  #     item.content    # => '<p>Hi!</p>'
   #   end
   #
   # @return [Feed]

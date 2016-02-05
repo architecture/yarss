@@ -15,6 +15,7 @@ describe Yarss::Atom::ItemParser do
         'title'   => 'Foo',
         'updated' => '2016-02-02T15:27:00+01:00',
         'link'    => 'http://foo.bar/',
+        'author'  => 'Foo',
         'content' => 'Foo, Bar!'
       }
     end
@@ -26,6 +27,7 @@ describe Yarss::Atom::ItemParser do
           title:      'Foo',
           updated_at: DateTime.parse('2016-02-02T15:27:00+01:00'),
           link:       'http://foo.bar/',
+          author:     'Foo',
           content:    'Foo, Bar!'
         )
       )
@@ -72,6 +74,15 @@ describe Yarss::Atom::ItemParser do
   context 'link' do
     let(:data) { { 'link' => 'foo' } }
     it { expect(item.link).to eq('foo') }
+  end
+
+  context 'author not present' do
+    it { expect(item.author).to eq('') }
+  end
+
+  context 'author' do
+    let(:data) { { 'author' => 'Foo' } }
+    it { expect(item.author).to eq('Foo') }
   end
 
   context 'content' do

@@ -15,6 +15,7 @@ describe Yarss::Rdf::ItemParser do
         'title'       => 'Foo',
         'dc:date'     => '2016-02-02T15:27:00+01:00',
         'link'        => 'http://foo.bar/',
+        'dc:creator'  => 'Foo',
         'description' => 'Foo, Bar!'
       }
     end
@@ -26,6 +27,7 @@ describe Yarss::Rdf::ItemParser do
           title:      'Foo',
           updated_at: DateTime.parse('2016-02-02T15:27:00+01:00'),
           link:       'http://foo.bar/',
+          author:     'Foo',
           content:    'Foo, Bar!'
         )
       )
@@ -83,6 +85,20 @@ describe Yarss::Rdf::ItemParser do
   context 'link' do
     let(:data) { { 'link' => 'foo' } }
     it { expect(item.link).to eq('foo') }
+  end
+
+  context 'author not present' do
+    it { expect { item.author }.to raise_error(Yarss::ParseError) }
+  end
+
+  context 'author' do
+    let(:data) { { 'dc:creator' => 'Foo' } }
+    it { expect(item.author).to eq('Foo') }
+  end
+
+  context 'author' do
+    let(:data) { { 'creator' => 'Foo' } }
+    it { expect(item.author).to eq('Foo') }
   end
 
   context 'description not present' do

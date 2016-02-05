@@ -12,13 +12,17 @@ the fastest XML parser I know of. JRuby users should probably use
 
 ```ruby
 ['path/to/feed.rss', 'path/to/feed.atom', 'path/to/feed.rdf'].each do |file_path|
-  feed = Yarss.new(file_path)
-
-  puts "#{feed.title}, #{feed.link}, #{feed.description}"
+  feed.title       # => "Foo's bars"
+  feed.link        # => 'http://foo.bar/'
+  feed.description # => 'Bars everywhere!'
 
   feed.items.each do |item|
-    puts "#{item.id}, #{item.title}, #{item.updated_at}, #{item.link}"
-    puts item.content
+    item.id         # => 'id'
+    item.title      # => 'Hello!'
+    item.updated_at # => #<DateTIme ...>
+    item.link       # => 'http://foo.bar/1'
+    item.author     # => 'Joe'
+    item.content    # => '<p>Hi!</p>'
   end
 end
 ```

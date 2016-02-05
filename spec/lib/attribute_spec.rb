@@ -23,6 +23,30 @@ describe Yarss::Attribute do
     end
   end
 
+  context 'author_value' do
+    it 'String' do
+      expect(described_class.author_value('foo')).to eq('foo')
+    end
+
+    it 'Hash' do
+      value = {
+        'name' => 'foo'
+      }
+
+      expect(described_class.author_value(value)).to eq('foo')
+    end
+
+    it 'Hash error' do
+      expect { described_class.author_value({}) }
+        .to raise_error(Yarss::ParseError)
+    end
+
+    it '42' do
+      expect { described_class.author_value(42) }
+        .to raise_error(Yarss::ParseError)
+    end
+  end
+
   context 'link_value' do
     it 'String' do
       expect(described_class.link_value('foo')).to eq('foo')

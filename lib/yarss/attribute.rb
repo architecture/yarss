@@ -30,6 +30,32 @@ module Yarss
       raise ParseError, e
     end
 
+    # Extract a +String+ value from a given author attribute.
+    #
+    # @raise [ParseError] If type of value is not known.
+    #
+    # @example
+    #   Yarss::Attribute.author_value('Foo') # => 'Foo'
+    #   Yarss::Attribute.author_value('name' => 'Foo') # => 'Foo'
+    #
+    # @param value [String, Hash] An attribute.
+    #
+    # @return [String]
+    def self.author_value(value)
+      value ||= ''
+
+      case value
+      when Hash
+        value(value.fetch('name'))
+      when String
+        value.strip
+      else
+        raise ParseError, "Unknown #{value.class} attribute: #{value.inspect}"
+      end
+    rescue KeyError => e
+      raise ParseError, e
+    end
+
     # Extract a +String+ value from a given link attribute.
     #
     # @raise [ParseError] If type of value is not known or no link is found.
