@@ -22,7 +22,7 @@ describe Yarss::Rdf::FeedParser do
               'rdf:about'   => 'foo',
               'title'       => 'Foo',
               'dc:date'     => '2016-02-02T15:27:00+01:00',
-              'link'        => 'http://foo.bar/',
+              'link'        => 'http://foo.bar/1',
               'dc:creator'  => 'Foo',
               'description' => 'Foo, Bar!'
             }
@@ -42,7 +42,7 @@ describe Yarss::Rdf::FeedParser do
               id:         'foo',
               title:      'Foo',
               updated_at: DateTime.parse('2016-02-02T15:27:00+01:00'),
-              link:       'http://foo.bar/',
+              link:       'http://foo.bar/1',
               author:     'Foo',
               content:    'Foo, Bar!'
             )
@@ -110,12 +110,15 @@ describe Yarss::Rdf::FeedParser do
     let(:data) do
       {
         'rdf:RDF' => {
+          'channel' => {
+            'link' => 'foo'
+          },
           'item' => [
             {
               'rdf:about'   => 'foo',
               'title'       => 'Foo',
               'dc:date'     => '2016-02-02T15:27:00+01:00',
-              'link'        => 'http://foo.bar/',
+              'link'        => 'http://foo.bar/1',
               'dc:creator'  => 'Foo',
               'description' => 'Foo, Bar!'
             }
@@ -131,11 +134,14 @@ describe Yarss::Rdf::FeedParser do
     let(:data) do
       {
         'rdf:RDF' => {
+          'channel' => {
+            'link' => 'foo'
+          },
           'item' => {
             'rdf:about'   => 'foo',
             'title'       => 'Foo',
             'dc:date'     => '2016-02-02T15:27:00+01:00',
-            'link'        => 'http://foo.bar/',
+            'link'        => 'http://foo.bar/1',
             'dc:creator'  => 'Foo',
             'description' => 'Foo, Bar!'
           }

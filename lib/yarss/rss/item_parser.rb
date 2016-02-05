@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'digest'
+
 module Yarss
   module Rss
     # Extract id, title, updated, link and content from a feed item.
@@ -11,9 +13,16 @@ module Yarss
       # @return [Hash]
       attr_accessor :data
 
-      # @param data [Hash] Parsed RSS feed item.
-      def initialize(data)
-        self.data = data
+      # Feed link URL.
+      #
+      # @return [String]
+      attr_accessor :feed_link
+
+      # @param data      [Hash]   Parsed RSS feed item.
+      # @param feed_link [String] Feed link URL.
+      def initialize(data, feed_link: '')
+        self.data      = data
+        self.feed_link = feed_link
       end
 
       # Parse out the feed item id, title, updated, link and content and wrap
@@ -102,12 +111,16 @@ module Yarss
       #
       # @return [String]
       def description
-        description = Attribute.value(data['description'] || '')
+        content = if data['content:encoded']
+                    data['content:encoded']
+                  elsif data['description']
+                    data['description']
+                  else
+                    ''
+                  end
 
-        return Attribute.value(data['content:encoded']) if
-          description.empty? && data['content:encoded']
-
-        description
+        content = Attribute.value(content)
+        Attribute.absolutize_urls(content, feed_link)
       end
     end
   end

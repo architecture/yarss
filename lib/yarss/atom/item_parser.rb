@@ -11,9 +11,16 @@ module Yarss
       # @return [Hash]
       attr_accessor :data
 
-      # @param data [Hash] Parsed Atom feed item.
-      def initialize(data)
-        self.data = data
+      # Feed link URL.
+      #
+      # @return [String]
+      attr_accessor :feed_link
+
+      # @param data      [Hash]   Parsed Atom feed item.
+      # @param feed_link [String] Feed link URL.
+      def initialize(data, feed_link: '')
+        self.data      = data
+        self.feed_link = feed_link
       end
 
       # Parse out the feed item id, title, updated, link and content and wrap
@@ -92,8 +99,9 @@ module Yarss
       def content
         summary = Attribute.value(data['summary'] || '')
         content = Attribute.value(data['content'] || '')
-        return content unless content.empty?
-        summary
+        content = summary if content.empty?
+
+        Attribute.absolutize_urls(content, feed_link)
       end
     end
   end

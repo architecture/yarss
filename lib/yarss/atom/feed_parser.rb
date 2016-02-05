@@ -78,7 +78,7 @@ module Yarss
       def items
         items = feed.fetch('entry')
         items = [items] unless items.is_a?(Array)
-        items.map { |d| ItemParser.new(d).parse }
+        items.map { |d| ItemParser.new(d, feed_link: link).parse }
       rescue KeyError => e
         raise ParseError, e
       end

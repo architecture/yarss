@@ -14,7 +14,7 @@ describe Yarss::Atom::ItemParser do
         'id'      => 'foo',
         'title'   => 'Foo',
         'updated' => '2016-02-02T15:27:00+01:00',
-        'link'    => 'http://foo.bar/',
+        'link'    => 'http://foo.bar/1',
         'author'  => 'Foo',
         'content' => 'Foo, Bar!'
       }
@@ -26,7 +26,7 @@ describe Yarss::Atom::ItemParser do
           id:         'foo',
           title:      'Foo',
           updated_at: DateTime.parse('2016-02-02T15:27:00+01:00'),
-          link:       'http://foo.bar/',
+          link:       'http://foo.bar/1',
           author:     'Foo',
           content:    'Foo, Bar!'
         )

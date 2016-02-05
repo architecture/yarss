@@ -9,9 +9,16 @@ module Yarss
       # @return [Hash]
       attr_accessor :data
 
-      # @param data [Hash] Parsed Rdf feed item.
-      def initialize(data)
-        self.data = data
+      # Feed link URL.
+      #
+      # @return [String]
+      attr_accessor :feed_link
+
+      # @param data      [Hash]   Parsed Rdf feed item.
+      # @param feed_link [String] Feed link URL.
+      def initialize(data, feed_link: '')
+        self.data      = data
+        self.feed_link = feed_link
       end
 
       # Parse out the feed item id, title, updated, link and content and wrap
@@ -105,7 +112,8 @@ module Yarss
       #
       # @return [String]
       def description
-        Attribute.value(data.fetch('description'))
+        description = Attribute.value(data.fetch('description'))
+        Attribute.absolutize_urls(description, feed_link)
       rescue KeyError => e
         raise ParseError, e
       end

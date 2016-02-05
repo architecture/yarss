@@ -79,8 +79,8 @@ module Yarss
         link_value(value.fetch('href'))
       when Array
         item = value.find { |l| l.is_a?(String) } ||
-               value.find { |l| l['rel'] && l['rel'] == 'self' } ||
-               value.find { |l| l['rel'] && l['rel'] == 'alternate' }
+               value.find { |l| l['rel'] && l['rel'] == 'alternate' } ||
+               value.find { |l| l['rel'].nil? }
         raise KeyError unless item
         link_value(item)
       when String
@@ -90,6 +90,30 @@ module Yarss
       end
     rescue KeyError => e
       raise ParseError, e
+    end
+
+    # Make relative URLs absolute.
+    #
+    # @param content [String] Item content.
+    # @param base    [String] Base URL.
+    #
+    # @return [String]
+    def self.absolutize_urls(content, base)
+      return content if base.empty? || content.empty?
+
+      regex = %r{
+        (?<=src="|href="|src='|href=')
+        /
+        ([^/"'].+?)? # Don't match "//xx" but do match "/".
+        (?="|')
+      }x
+
+      content = content.gsub(regex) do |url|
+        "#{base.chomp('/')}#{url}"
+      end
+      content.gsub!("\r\n", "\n")
+
+      content.freeze
     end
   end
 end
