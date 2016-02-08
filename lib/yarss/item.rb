@@ -56,5 +56,47 @@ module Yarss
         author     == other.author     &&
         content    == other.content
     end
+
+    # Is the ID present?
+    #
+    # @return [Bool]
+    def id?
+      !id.nil? && !id.empty?
+    end
+
+    # Is the title present?
+    #
+    # @return [Bool]
+    def title?
+      !title.nil? && !title.empty?
+    end
+
+    # Is the date and time of the last modification present?
+    #
+    # @return [Bool]
+    def updated_at?
+      !updated_at.nil?
+    end
+
+    # Is the URL to the related Web page present?
+    #
+    # @return [Bool]
+    def link?
+      !link.nil? && !link.empty?
+    end
+
+    # Is the author present?
+    #
+    # @return [Bool]
+    def author?
+      !author.nil? && !author.empty?
+    end
+
+    # Is the content present?
+    #
+    # @return [Bool]
+    def content?
+      !content.nil? && !content.empty?
+    end
   end
 end

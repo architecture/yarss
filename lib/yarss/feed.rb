@@ -44,5 +44,33 @@ module Yarss
         description == other.description &&
         items       == other.items
     end
+
+    # Is the title present?
+    #
+    # @return [Bool]
+    def title?
+      !title.nil? && !title.empty?
+    end
+
+    # Is the URL to the related Web page present?
+    #
+    # @return [Bool]
+    def link?
+      !link.nil? && !link.empty?
+    end
+
+    # Is the description present?
+    #
+    # @return [Bool]
+    def description?
+      !description.nil? && !description.empty?
+    end
+
+    # Are the feed items present?
+    #
+    # @return [Bool]
+    def items?
+      !items.nil? && !items.empty?
+    end
   end
 end

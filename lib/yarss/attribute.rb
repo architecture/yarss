@@ -80,8 +80,8 @@ module Yarss
       when Array
         item = value.find { |l| l.is_a?(String) } ||
                value.find { |l| l['rel'] && l['rel'] == 'alternate' } ||
-               value.find { |l| l['rel'].nil? }
-        raise KeyError unless item
+               value.find { |l| l['rel'].nil? } ||
+               ''
         link_value(item)
       when String
         value.strip

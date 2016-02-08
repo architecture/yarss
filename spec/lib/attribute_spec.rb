@@ -100,13 +100,11 @@ describe Yarss::Attribute do
         { 'rel' => 'self' }
       ]
 
-      expect { described_class.link_value(value) }
-        .to raise_error(Yarss::ParseError)
+      expect(described_class.link_value(value)).to eq('')
     end
 
     it 'Array error' do
-      expect { described_class.link_value([]) }
-        .to raise_error(Yarss::ParseError)
+      expect(described_class.link_value([])).to eq('')
     end
   end
 
