@@ -24,21 +24,21 @@ Gem::Specification.new do |spec|
 
   # System
   spec.add_development_dependency 'bundler', '~> 1.11'
-  # spec.add_development_dependency 'ox',       '~> 2.2'
+  # spec.add_development_dependency 'ox',       '~> 2.3'
   # spec.add_development_dependency 'nokogiri', '~> 1.6'
-  # spec.add_development_dependency 'oga',      '~> 2.0'
+  # spec.add_development_dependency 'oga',      '~> 2.2'
 
   # Test
   spec.add_development_dependency 'rspec',     '~> 3.4'
   spec.add_development_dependency 'simplecov', '~> 0.11'
 
   # Code style, debugging, docs
-  spec.add_development_dependency 'rubocop',    '~> 0.37'
+  spec.add_development_dependency 'rubocop',    '~> 0.38'
   spec.add_development_dependency 'pry',        '~> 0.10'
   # spec.add_development_dependency 'pry-doc',    '~> 0.8'
   # spec.add_development_dependency 'pry-byebug', '~> 3.3'
   spec.add_development_dependency 'yard',       '~> 0.8'
-  spec.add_development_dependency 'rake',       '~> 10.5'
+  spec.add_development_dependency 'rake',       '~> 11.1'
 
   # Provides swappable XML backends utilizing LibXML, Nokogiri, Ox, Oga or REXML.
   spec.add_runtime_dependency 'multi_xml', '~> 0.5'
