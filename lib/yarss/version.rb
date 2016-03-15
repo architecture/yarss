@@ -2,5 +2,5 @@
 
 module Yarss
   # Version number, happy now?
-  VERSION = '0.0.5'
+  VERSION = '0.0.6'
 end
