@@ -108,9 +108,7 @@ module Yarss
         (?="|')
       }x
 
-      content = content.gsub(regex) do |url|
-        "#{base.chomp('/')}#{url}"
-      end
+      content = content.gsub(regex) { |url| URI.join(base, url) }
       content.gsub!("\r\n", "\n")
 
       content.freeze
