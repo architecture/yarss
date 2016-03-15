@@ -1,6 +1,7 @@
 --protected
 --private
 --embed-mixins
+--default-return void
 lib/**/*.rb
 -
 README.md
