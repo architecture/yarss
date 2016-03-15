@@ -6,8 +6,8 @@ describe Yarss do
     expect(feed.title).to eq('Ma Feed')
   end
 
-  it 'new file' do
-    feed = described_class.new('spec/data/feed.rss')
+  it 'new string' do
+    feed = described_class.new(File.read('spec/data/feed.rss'))
     expect(feed.title).to eq('Ma Feed')
   end
 

@@ -19,8 +19,8 @@ module Yarss
   # Not a RSS, RDF or Atom feed.
   class UnknownParserError < Error; end
 
-  # Parse a {Feed} out of a path to a XML or an IO (or whatever responds
-  # to +read+).
+  # Parse a {Feed} out of a path to a XML or an IO-like that responds
+  # to +read+.
   #
   # @raise [UnknownParserError] If no corresponding parser was found.
   # @raise [ParseError]         If XML parsing or field extracting failed.
@@ -29,7 +29,9 @@ module Yarss
   #                                   Pathname, something that can be read.
   #
   # @example
-  #   feed = Yarss.new('path/to/feed.rss')
+  #   feed = Yarss.new('<xml string>...')
+  #   feed = Yarss.new(Pathname.new('path/to/feed.rss'))
+  #   feed = Yarss.new(File.open('path/to/feed.rss', 'rb'))
   #
   #   feed.title       # => "Foo's bars"
   #   feed.link        # => 'http://foo.bar/'
@@ -49,7 +51,7 @@ module Yarss
     if path_or_io.respond_to?(:read)
       from_io(path_or_io)
     else
-      from_file(path_or_io)
+      from_string(path_or_io)
     end
   end
 
@@ -121,7 +123,7 @@ module Yarss
   # @param path_or_io [String, #read] Path to a file or an IO.
   #
   # @example
-  #   feed = Yarss.from_string('...)
+  #   feed = Yarss.from_string('<xml string>...')
   #
   #   feed.title       # => "Foo's bars"
   #   feed.link        # => 'http://foo.bar/'

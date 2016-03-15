@@ -11,19 +11,34 @@ the fastest XML parser I know of. JRuby users should probably use
 ## Usage
 
 ```ruby
-['path/to/feed.rss', 'path/to/feed.atom', 'path/to/feed.rdf'].each do |file_path|
-  feed.title       # => "Foo's bars"
-  feed.link        # => 'http://foo.bar/'
-  feed.description # => 'Bars everywhere!'
+# Parse from a String (raw XML), a Pathname, or an IO:
+feed = Yarss.new('<xml string>...')
+feed = Yarss.new(Pathname.new('path/to/feed.rss'))
+feed = Yarss.new(File.open('path/to/feed.rss', 'rb'))
 
-  feed.items.each do |item|
-    item.id         # => 'id'
-    item.title      # => 'Hello!'
-    item.updated_at # => #<DateTIme ...>
-    item.link       # => 'http://foo.bar/1'
-    item.author     # => 'Joe'
-    item.content    # => '<p>Hi!</p>'
-  end
+# Parse using IO-like, needs to respond to #read:
+feed = Yarss.from_io(Pathname.new('path/to/feed.rss'))
+feed = Yarss.from_io(File.open('path/to/feed.rss', 'rb'))
+
+# Parse from a file path:
+feed = Yarss.from_file('path/to/feed.rss')
+
+# Parse from a string:
+feed = Yarss.from_string('<xml string>...')
+
+# Access feed attributes:
+feed.title       # => "Foo's bars"
+feed.link        # => 'http://foo.bar/'
+feed.description # => 'Bars everywhere!'
+
+# Access feed items:
+feed.items.each do |item|
+  item.id         # => 'id'
+  item.title      # => 'Hello!'
+  item.updated_at # => #<DateTIme ...>
+  item.link       # => 'http://foo.bar/1'
+  item.author     # => 'Joe'
+  item.content    # => '<p>Hi!</p>'
 end
 ```
 
